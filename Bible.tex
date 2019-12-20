@@ -1,9 +1,66 @@
-\documentclass[12pt,a4paper]{book}
+% !TeX spellcheck = en_US
+
+\documentclass[11pt,a5paper]{book}
 
 \directlua{dofile('Genesis.lua')}
 
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage[usenames,svgnames,table]{xcolor}
+\usepackage{hyperref}
+
+\geometry{
+	paper = a5paper,
+	layout = a5paper,
+	layoutsize = {148 mm, 210 mm},
+	layoutoffset = {0 mm, 0 mm},
+	includehead = true,
+	headheight = 15pt,
+	inner = 1.3 cm,
+	outer = 1 cm,
+	top = 1 cm,
+	bottom = 1.2 cm,
+	columnsep = .5 cm,
+	includefoot = false,
+	footnotesep = .2 cm,
+	footskip = 5 pt,
+	twoside = true,
+	twocolumn = true,
+	showframe = true,
+}
+
+\hypersetup{
+	pdfstartview = FitH,
+	bookmarksopen = true,
+	bookmarksnumbered = false,
+	pdftitle = Holy Bible,
+	pdfauthor = Levy Marfim,
+	pdfsubject = Old English Translated Bible,
+	pdfkeywords = {Holy Bible, Old English, Middle English, Wycliff},
+	pdfdisplaydoctitle = true,
+	colorlinks = true,
+}
+
+\setmainfont{GaramondPremrPro}[
+	Extension = .otf,
+	UprightFont = *,
+	BoldFont = *-Bd,
+	ItalicFont = *-It,
+	BoldItalicFont = *-BdIt,
+	Kerning = On,
+	Contextuals = Alternate,
+	Ligatures = Rare
+	]
+
+\newfontfamily\ipafont{Doulos SIL}
+\newcommand{\phnm}[1]{#1}
+\DeclareTextFontCommand\phnm{\ipafont}
+
 \begin{document}
 	\directlua{
-		tex.print(Genesis[1][1])
+		for j = 1, table.getn(Genesis[1]), 1 do
+			tex.print(Genesis[1][j])
+			tex.print("")
+		end
 	}
 \end{document}
