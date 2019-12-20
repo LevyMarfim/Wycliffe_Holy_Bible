@@ -1,5 +1,4 @@
--- require("Definitions.lua")
-dofile("Definitions.lua")
+dofile("Etymology.lua")
 
 
 function fn(str)
