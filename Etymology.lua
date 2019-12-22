@@ -46,6 +46,14 @@ idel = [[\textbf{Idel} - idle \phnm{/ˈʌɪd(ə)l/ (adj.)}: OE \textit{idel} ``e
 
 nought = [[\textbf{Nouȝt} - nought \phnm{/nɔːt/ (n.)}: Archaic. Nothing. From OE \textit{nowiht} ``nothing,'' variant of \textit{nawiht}. Meaning ``zero, cipher'' is from early 15c.]]
 
+noughtt = {
+	word = "Nouȝt",
+	spell = "nought",
+	phonetic = "nɔːt",
+	class = "noum",
+	meaning = [[Archaic. Nothing. From OE \textit{nowiht} ``nothing,'' variant of \textit{nawiht}. Meaning ``zero, cipher'' is from early 15c.]]
+}
+
 --
 --	T
 --
@@ -63,5 +71,13 @@ voide = [[\textbf{Voide} - void \phnm{/vɔɪd/ (adj.)}: c. 1300, ``unoccupied, v
 --
 
 watris = [[\textbf{Watris} - waters \phnm{/ˈwɔːtəz/ (n.)}: OE \textit{wæter}, from Proto-Germanic *\textit{watr}- (source also of OS \textit{watar}, OF \textit{wetir}, Dutch \textit{water}, OHG \textit{wazzar}, German \textit{Wasser}, ON \textit{vatn}, Gothic \textit{wato} ``water''), from PIE *\textit{wod-or}, suffixed form of root *\textit{wed}- ``water; wet.'']]
+
+watriss = {
+	word = "Watris",
+	spell = "waters",
+	phonetic = "ˈwɔːtəz",
+	class = "noum",
+	meaning = [[OE \textit{wæter}, from Proto-Germanic *\textit{watr}- (source also of OS \textit{watar}, OF \textit{wetir}, Dutch \textit{water}, OHG \textit{wazzar}, German \textit{Wasser}, ON \textit{vatn}, Gothic \textit{wato} ``water''), from PIE *\textit{wod-or}, suffixed form of root *\textit{wed}- ``water; wet.'']]
+}
 
 weren = [[\textbf{Weren} - were \phnm{/wə/ (v.)}: OE \textit{wæron} (past plural indicative of \textit{wesan}) and \textit{wære} (second person singular past indicative). The forms illustrate Verner's Law (named for Danish linguist Karl Verner, 1875), which predicts the ``s'' to ``z'' sound shift, and rhotacism, which changed ``z'' to ``r.'' \textit{Wast} (second person singular) was formed 1500s on analogy of \textit{be}/\textit{beest}, displacing \textit{were}. An intermediate form, \textit{wert}, was used in literature 17c.-18c., before \textit{were} reclaimed the job.]]

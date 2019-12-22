@@ -6,7 +6,6 @@
 
 \usepackage{geometry}
 \usepackage{fontspec}
-\usepackage[usenames,svgnames,table]{xcolor}
 \usepackage{hyperref}
 
 \geometry{
@@ -63,4 +62,25 @@
 			tex.print("")
 		end
 	}
+	
+	\directlua{tex.print(printEtymology(noughtt))}
+	
+	% nouȝt
+	\pagebreak
+	
+	\meaning\@mpfn
+	
+	\meaning\thempfn
+	
+	\meaning\@footnotetext
+	
+	\meaning\@iiiminipage
+	
+	\meaning\@mpfootins
+	
+	\meaning\footnoterule
+	
+	\meaning\@mpfootnotetext
+	
+	\meaning\@makefntext
 \end{document}
