@@ -34,6 +34,29 @@ function ipa(str)
 	return "\\phnm{/" .. str .. "/}"
 end
 
+-- Grammar classes
+function class(str)
+	if str == "noum" then
+		return " (n.)"
+	elseif str == "verb" then
+		return " (v.)"
+	elseif str == "adverb" then
+		return " (adv.)"
+	elseif str == "adjective" then
+		return " (adj.)"
+	elseif str == "preposition" then
+		return " (prep.)"
+	elseif str == "numeral" then
+		return " (num.)"
+	elseif str == "indefinite" then
+		return " (indef.)"
+	elseif str == "definite" then
+		return " (def.)"
+	elseif str == "article" then
+		return " (art.)"
+	end
+end
+
 -- prints etymology of the word
 function printEtymology(table)
 	local str = bold(table.word)
@@ -42,7 +65,7 @@ function printEtymology(table)
 		str = str .. " -- " .. table.spell
 	end
 	
-	str = str .. " --- " .. ipa(table.phonetic)
+	str = str .. " " .. ipa(table.phonetic) .. class(table.class) .. ": " .. table.meaning
 	
 	return str
 end

@@ -6,6 +6,7 @@
 
 \usepackage{geometry}
 \usepackage{fontspec}
+\usepackage{tikz}
 \usepackage{hyperref}
 
 \geometry{
@@ -63,7 +64,10 @@
 		end
 	}
 	
-	\directlua{tex.print(printEtymology(noughtt))}
+	\tikz \draw (0,0) to ++(0:2cm);
+	\fontsize{8}{8}
+	\directlua{tex.print(printEtymology(nought))}
+	\tikz \draw[red] (0,0) to ++(0:2cm);
 	
 	% nouȝt
 	\pagebreak
