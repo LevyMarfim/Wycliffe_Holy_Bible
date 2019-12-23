@@ -15,7 +15,7 @@ end
 Genesis = {}
 
 Genesis[1] = {}
-	Genesis[1][1] = "In þe" .. fn(theArticle) .. "bigynnyng" .. fn(bigynnyng) .. "god made of nouȝt" .. fn(nought) .. "heuene" .. fn(heuene) .. "and erthe" .. fn(erthe) .. "."
+	Genesis[1][1] = "In þe bigynnyng god made of nouȝt heuene and erthe."
 	Genesis[1][2] = "Forsothe the erthe was idel and voide, and derknessis weren on the face of depthe; and the spirit of the lord was borun on the watris."
 	Genesis[1][3] = "And god seide, Liȝt be maad, and liȝt was maad."
 
@@ -48,18 +48,16 @@ function class(str)
 		return " (prep.)"
 	elseif str == "numeral" then
 		return " (num.)"
-	elseif str == "indefinite" then
-		return " (indef.)"
-	elseif str == "definite" then
-		return " (def.)"
-	elseif str == "article" then
-		return " (art.)"
+	elseif str == "definite article" then
+		return " (indef. art.)"
+	elseif str == "indefinite article" then
+		return " (def. art.)"
 	end
 end
 
 -- prints etymology of the word
 function printEtymology(table)
-	local str = bold(table.word)
+	local str = table.word
 	
 	if table.spell ~= nil then
 		str = str .. " -- " .. table.spell
@@ -69,3 +67,5 @@ function printEtymology(table)
 	
 	return str
 end
+
+print(printEtymology(nought))
