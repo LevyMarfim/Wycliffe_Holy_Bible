@@ -5,7 +5,7 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 
 ## What's new in version 0.4
 * Organized entries in tables from Etymology.lua
-* New functions in lua set bold and italic shapes
+* New functions in lua to set bold and italic shapes
 
 ## To do list
 * Fix issue with font size when calling a function from .lua file
