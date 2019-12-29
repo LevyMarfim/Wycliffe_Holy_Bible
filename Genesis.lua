@@ -1,9 +1,9 @@
-dofile("Etymology.lua")
+--dofile("Etymology.lua")
 
-function fn(str)
-	str = string.format([[\footnote{]] .. str .. "} ")
-	return str
-end
+-- function fn(str)
+	-- str = string.format([[\footnote{]] .. str .. "} ")
+	-- return str
+-- end
 
 function verse(str,wrd)
 	--for w in string.gmatch(s, "%a+") do
@@ -20,12 +20,12 @@ Genesis[1] = {}
 	Genesis[1][3] = "And god seide, Liȝt be maad, and liȝt was maad."
 
 -- bold words
-function bold(str)
+function bd(str)
 	return "\\textbf{" .. str .. "}"
 end
 
 -- italic words
-function italic(str)
+function it(str)
 	return "\\textit{" .. str .. "}"
 end
 
@@ -34,38 +34,62 @@ function ipa(str)
 	return "\\phnm{/" .. str .. "/}"
 end
 
+dofile("Etymology.lua")
+
 -- Grammar classes
 function class(str)
 	if str == "noum" then
-		return " (n.)"
+		return "(n.)"
 	elseif str == "verb" then
-		return " (v.)"
+		return "(v.)"
 	elseif str == "adverb" then
-		return " (adv.)"
+		return "(adv.)"
 	elseif str == "adjective" then
-		return " (adj.)"
+		return "(adj.)"
 	elseif str == "preposition" then
-		return " (prep.)"
+		return "(prep.)"
 	elseif str == "numeral" then
-		return " (num.)"
+		return "(num.)"
 	elseif str == "definite article" then
-		return " (indef. art.)"
+		return "(indef. art.)"
 	elseif str == "indefinite article" then
-		return " (def. art.)"
+		return "(def. art.)"
+	else
+		return "NOT VALID"
 	end
 end
 
 -- prints etymology of the word
 function printEtymology(table)
-	local str = table.word
+	local str = ""
+	local etm = {}
+	etm[1] = bd(table.word)
 	
 	if table.spell ~= nil then
-		str = str .. " -- " .. table.spell
+		etm[2] = " -- " .. table.spell
 	end
 	
-	str = str .. " " .. ipa(table.phonetic) .. class(table.class) .. ": " .. table.meaning
+	etm[3] = " " .. ipa(table.phonetic) .. class(table.class) .. ": " .. table.meaning
+	
+	for i = 1,3,1 do
+		str = str .. etm[i]
+	end
 	
 	return str
 end
 
-print(printEtymology(nought))
+function fn(table)
+	-- tex.print("\\noindent")
+	tex.print("")
+	tex.print("\\noindent\\tikz \\draw[red,thick,overlay] (0,0) to ++(0:\\columnwidth);")
+	tex.print("")
+	tex.print("\\fontsize{8}{9}\\selectfont")
+	tex.print(bd(table.word),"--",table.spell,"{\\ipa/"..table.phonetic.."/}",class(table.class)..":",table.meaning)
+	tex.print("")
+	tex.print("\\normalsize")
+	tex.print("\\noindent\\tikz \\draw[red,thick,overlay] (0,0) to ++(0:\\columnwidth);")
+end
+
+print(printEtymology(watris))
+print(bd("wæter"))
+

@@ -1,4 +1,7 @@
 % !TeX spellcheck = en_US
+% !TeX program = lualatex
+
+% version 0.4.1
 
 \documentclass[11pt,a5paper]{book}
 
@@ -10,7 +13,6 @@
 \usepackage{hyperref}
 
 \geometry{
-	paper = a5paper,
 	layout = a5paper,
 	layoutsize = {148 mm, 210 mm},
 	layoutoffset = {0 mm, 0 mm},
@@ -52,30 +54,8 @@
 	Ligatures = Rare
 	]
 
-\newfontfamily\etmft{Junicode}[
-%	Extension = .otf,
-	UprightFont = *-Regular,
-	BoldFont = *-Bold,
-	ItalicFont = *-Italic,
-%	BoldItalicFont = *-BdItDisp,
-	Kerning = On,
-%	Contextuals = Alternate,
-%	Ligatures = Rare,
-	SizeFeatures = {Size = 20}
-	]
+\newfontfamily\ipa{Doulos SIL}[SizeFeatures = {Size = 8}]
 
-\newfontfamily\ipafont{Doulos SIL}
-\newcommand{\phnm}[1]{#1}
-\DeclareTextFontCommand\phnm{\ipafont}
-
-\newcommand{\etmlg}[1]{
-	\noindent
-%	\tikz[overlay] \draw[red] (0,.1) to (6,.1);
-	\tikz \draw[red,thick] (0,0) to (6.1,0);
-	\fontsize{8}{8}
-	#1\linebreak
-	\tikz \draw[red,thick] (0,0) to (6.1,0);
-}
 
 \begin{document}
 	\directlua{
@@ -85,9 +65,12 @@
 		end
 	}
 	
-	\fontsize{8}{8}
-	\directlua{tex.print(printEtymology(watris))}
-	\normalsize
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique enim purus, sit amet bibendum ante hendrerit efficitur. Praesent et efficitur lorem, quis molestie orci. Nullam pulvinar augue sapien, egestas imperdiet lectus malesuada at. Aenean magna urna, bibendum non elit eu, dapibus egestas massa. Proin porttitor cursus massa, vel posuere massa congue sed. Quisque molestie, massa eget consectetur vehicula, velit neque pretium quam, quis interdum ipsum libero in lacus. Phasellus id quam a urna elementum semper et ut justo. Aliquam odio elit, accumsan in porttitor et, pharetra id nibh.
+	\directlua{fn(watris)}
+
+	\directlua{
+		for j = 1, table.getn(Genesis[1]), 1 do
+			tex.print(Genesis[1][j])
+			tex.print("")
+		end
+	}
 \end{document}

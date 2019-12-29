@@ -121,7 +121,8 @@ watris = {
 	spell = "waters",
 	phonetic = "ˈwɔːtəz",
 	class = "noum",
-	meaning = [[OE \textit{wæter}, from Proto-Germanic *\textit{watr}- (source also of OS \textit{watar}, OF \textit{wetir}, Dutch \textit{water}, OHG \textit{wazzar}, German \textit{Wasser}, ON \textit{vatn}, Gothic \textit{wato} ``water''), from PIE *\textit{wod-or}, suffixed form of root *\textit{wed}- ``water; wet.'']]
+	meaning = "Old English " .. it("wæter") .. ", from Proto-Germanic *it(watr)- (source also of Old Saxon " .. it("watar") .. ", Old Frisian it(wetir), Dutch it(water), Old High German it(wazzar), German it(Wasser), Old Norse it(vatn), Gothic it(wato) water), from Proto Indo-European *it(wod-or), suffixed form of root *it(wed)- water; wet.",
+	grr = it("wæter")
 }
 
 weren = {
