@@ -9,6 +9,8 @@
 
 \usepackage{geometry}
 \usepackage{fontspec}
+\usepackage{polyglossia}
+	\disablehyphenation
 \usepackage{tikz}
 \usepackage{hyperref}
 
@@ -58,12 +60,15 @@
 
 
 \begin{document}
+	\sloppy
+	
 	\directlua{
 		for j = 1, table.getn(Genesis[1]), 1 do
-			tex.print(Genesis[1][j])
-			tex.print("")
+			tex.print(Genesis[1][j],"")
 		end
 	}
+	
+	\meaning\sloppy
 	
 	\directlua{fn(watris)}
 

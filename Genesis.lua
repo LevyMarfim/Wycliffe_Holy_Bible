@@ -41,25 +41,6 @@ function class(str)
 	end
 end
 
--- prints etymology of the word
-function printEtymology(table)
-	local str = ""
-	local etm = {}
-	etm[1] = bd(table.word)
-	
-	if table.spell ~= nil then
-		etm[2] = " -- " .. table.spell
-	end
-	
-	etm[3] = " " .. ipa(table.phonetic) .. class(table.class) .. ": " .. table.meaning
-	
-	for i = 1,3,1 do
-		str = str .. etm[i]
-	end
-	
-	return str
-end
-
 function fn(table)
 	-- tex.print("\\noindent")
 	tex.print("")
@@ -73,6 +54,4 @@ function fn(table)
 	tex.print("\\normalsize")
 end
 
-print(printEtymology(watris))
-print(bd("wæter"))
 
