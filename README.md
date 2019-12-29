@@ -3,10 +3,10 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 
 ![Preview of what the project is going to look](/Resources/preview.jpg)
 
-## What's new in version 0.4
-* Organized entries in tables from Etymology.lua
-* New functions in lua to set bold and italic shapes
+## What's new in version 0.4.1
+* Fixed issue with font size when calling fn function from .lua file
+* New layout for fn function. It prints the etymology of the words of the verse
 
 ## To do list
-* Fix issue with font size when calling a function from .lua file
-* Write a function in .lua file to build the verse and the etymologies all together
+* Create a .lua module to separate Genesis.lua and Etymology.lua
+* Write a function in .lua file to print the etymologies of words in the verse by passing them as arguments
