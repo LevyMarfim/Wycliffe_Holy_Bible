@@ -1,23 +1,10 @@
 --dofile("Etymology.lua")
 
--- function fn(str)
-	-- str = string.format([[\footnote{]] .. str .. "} ")
-	-- return str
--- end
-
-function verse(str,wrd)
-	--for w in string.gmatch(s, "%a+") do
-	--x = string.find(str, wrd)
-	--print(x+#wrd)
-	--return tostring(x+#wrd)
-end
-
 Genesis = {}
-
-Genesis[1] = {}
-	Genesis[1][1] = "In þe bigynnyng god made of nouȝt heuene and erthe."
-	Genesis[1][2] = "Forsothe the erthe was idel and voide, and derknessis weren on the face of depthe; and the spirit of the lord was borun on the watris."
-	Genesis[1][3] = "And god seide, Liȝt be maad, and liȝt was maad."
+	Genesis[1] = {}
+		Genesis[1][1] = "In þe bigynnyng god made of nouȝt heuene and erthe."
+		Genesis[1][2] = "Forsothe the erthe was idel and voide, and derknessis weren on the face of depthe; and the spirit of the lord was borun on the watris."
+		Genesis[1][3] = "And god seide, Liȝt be maad, and liȝt was maad."
 
 -- bold words
 function bd(str)
@@ -27,11 +14,6 @@ end
 -- italic words
 function it(str)
 	return "\\textit{" .. str .. "}"
-end
-
--- IPA phonetic description
-function ipa(str)
-	return "\\phnm{/" .. str .. "/}"
 end
 
 dofile("Etymology.lua")
@@ -86,8 +68,9 @@ function fn(table)
 	tex.print("\\fontsize{8}{9}\\selectfont")
 	tex.print(bd(table.word),"--",table.spell,"{\\ipa/"..table.phonetic.."/}",class(table.class)..":",table.meaning)
 	tex.print("")
+	tex.print("\\noindent\\tikz \\draw[red,thick,overlay] (0,4pt) to ++(0:\\columnwidth);")
+	tex.print("")
 	tex.print("\\normalsize")
-	tex.print("\\noindent\\tikz \\draw[red,thick,overlay] (0,0) to ++(0:\\columnwidth);")
 end
 
 print(printEtymology(watris))
