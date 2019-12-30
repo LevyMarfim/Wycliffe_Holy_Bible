@@ -15,4 +15,4 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 ## Usage
 Currently the project is in development status and has no doable applyance but to build the source code. You can help the project by suggesting implementations or supporting it by any finantial means. If you want to sponsor it consider contacting us.
 
-> _The Wycliffe Holy Bible Project gladly thanks the tex.stackexchange community for all the help with LaTeX and LuaLaTeX coding_
+> _The Wycliffe Holy Bible Project gladly thanks the tex.stackexchange community for all the help with LaTeX and LuaLaTeX coding!_
