@@ -9,5 +9,5 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 
 ## To do list
 * Create a .lua module to separate _Genesis.lua_ and _Etymology.lua_ from the main file
-* Highlight the word referring to god in small caps
+* Highlight the words referring to `God` in small caps
 * Write a function in .lua file to print the etymologies of words in the verse by passing them as arguments
