@@ -5,7 +5,7 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 
 ## What's new in version 0.4.2
 * Created modules to separate .lua files to its specific functions
-* Words referring to God are highlighted in small caps
+* Words referring to `God` are highlighted in small caps
 * .lua files better documented with plenty comments
 * New function in .lua file to print the etymologies of words in the verse by passing them as arguments
 
