@@ -5,7 +5,7 @@
 
 \documentclass[11pt,a5paper]{book}
 
-\directlua{dofile('Genesis.lua')}
+\directlua{dofile("Precipuo.lua")}
 
 \usepackage{geometry}
 \usepackage{fontspec}
@@ -56,26 +56,11 @@
 	Ligatures = Rare
 	]
 
-\newfontfamily\ipa{Doulos SIL}[SizeFeatures = {Size = 8}]
-
+\newfontfamily\ipa{Doulos SIL}[SizeFeatures = {Size = 7}]
 
 \begin{document}
 	\sloppy
-	
-	\directlua{
-		for j = 1, table.getn(Genesis[1]), 1 do
-			tex.print(Genesis[1][j],"")
-		end
-	}
-	
-	\meaning\sloppy
-	
-	\directlua{fn(watris)}
 
-	\directlua{
-		for j = 1, table.getn(Genesis[1]), 1 do
-			tex.print(Genesis[1][j])
-			tex.print("")
-		end
-	}
+	\directlua{parseChapter(Chapter[1])}
+
 \end{document}

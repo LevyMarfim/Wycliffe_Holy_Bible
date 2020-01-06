@@ -1,57 +1,45 @@
---dofile("Etymology.lua")
+local Genesis = {}
 
-Genesis = {}
-	Genesis[1] = {}
-		Genesis[1][1] = "In þe bigynnyng god made of nouȝt heuene and erthe."
-		Genesis[1][2] = "Forsothe the erthe was idel and voide, and derknessis weren on the face of depthe; and the spirit of the lord was borun on the watris."
-		Genesis[1][3] = "And god seide, Liȝt be maad, and liȝt was maad."
+require("Etymology")
 
--- bold words
-function bd(str)
-	return "\\textbf{" .. str .. "}"
-end
+-- function Genesis.sizeOf(chap)
+	-- return #Chapter[chap]
+-- end
 
--- italic words
-function it(str)
-	return "\\textit{" .. str .. "}"
-end
+Chapter = {}
+	Chapter[1] = {chapNum = 1}
+		Chapter[1][1] = {
+			verse = "In þe bigynnyng God made of nouȝt heuene and erthe.",
+			etWords = {theArticle}--, bigynnyng, nought, heuene, erthe}
+		}
+		Chapter[1][2] = {
+			verse = "Forsothe the erthe was idel and voide, and derknessis weren on the face of depthe; and the Spiryt of the Lord was borun on the watris.",
+			etWords = {}
+		}
+		Chapter[1][3] = {
+			verse = "And God seide, Liȝt be maad, and liȝt was maad.",
+			etWords = {}
+		}
+		Chapter[1][4] = {
+			verse = "And God seiȝ the liȝt, that it was good, and he departide the liȝt fro derknessis; and he clepide the liȝt,",
+			etWords = {}
+		}
 
-dofile("Etymology.lua")
+	-- Chapter[2] = {chapNum = 2}
+		-- Chapter[2][1] = "First verse of chapter two."
+		-- Chapter[2][2] = "This is the second verse."
+		-- Chapter[2][3] = "In this verse we encounter the third verse."
+		-- Chapter[2][4] = "Fourth verse of this chapter."
+	
+	-- Chapter[3] = {chapNum = 3}
+		-- Chapter[3][1] = "Só em Jesus a vida podes encontrar."
+		-- Chapter[3][2] = "Há caminhos que ao homem parece ser bom."
+		-- Chapter[3][3] = "Mas seu fim não é o melhor."
+		-- Chapter[3][4] = "Neste mundo vão podes a Jesus encontrar."
+	
+	-- Chapter[4] = {chapNum = 4}
+		-- Chapter[4][1] = "On anȝynne ȝesceop Ȝod heofenan and eorðan."
+		-- Chapter[4][2] = "Seo eorðe soðlice ƿæs idel ond æmti, ond þeostra ƿæron ofer ðære nyƿelnysse bradnysse; ond Ȝodes ȝast ƿæs ȝeferod ofer ƿæteru."
+		-- Chapter[4][3] = "Ȝod cƿæð ða, \"Ȝeƿurðe leoht,\" ond leoht ƿæarð ȝeƿorht."
 
--- Grammar classes
-function class(str)
-	if str == "noum" then
-		return "(n.)"
-	elseif str == "verb" then
-		return "(v.)"
-	elseif str == "adverb" then
-		return "(adv.)"
-	elseif str == "adjective" then
-		return "(adj.)"
-	elseif str == "preposition" then
-		return "(prep.)"
-	elseif str == "numeral" then
-		return "(num.)"
-	elseif str == "definite article" then
-		return "(indef. art.)"
-	elseif str == "indefinite article" then
-		return "(def. art.)"
-	else
-		return "NOT VALID"
-	end
-end
-
-function fn(table)
-	-- tex.print("\\noindent")
-	tex.print("")
-	tex.print("\\noindent\\tikz \\draw[red,thick,overlay] (0,0) to ++(0:\\columnwidth);")
-	tex.print("")
-	tex.print("\\fontsize{8}{9}\\selectfont")
-	tex.print(bd(table.word),"--",table.spell,"{\\ipa/"..table.phonetic.."/}",class(table.class)..":",table.meaning)
-	tex.print("")
-	tex.print("\\noindent\\tikz \\draw[red,thick,overlay] (0,4pt) to ++(0:\\columnwidth);")
-	tex.print("")
-	tex.print("\\normalsize")
-end
-
-
+return Genesis
