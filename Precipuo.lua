@@ -2,8 +2,12 @@
 
 -- Load the modules that contain content needed to build the bible
 -- Do not use local module varibles so that LuaLaTeX interpreter can see them and compile the document properly
-genesisModule = require("Genesis")
+bookModules = {
+	require("Genesis"),
+	require("Exodus")
+}
 etymologyModule = require("Etymology")
+--require("Etymology")
 
 
 --
@@ -32,6 +36,7 @@ end
 
 --
 -- Grammar classes
+-- string = bookModules[i].Chapter[i][j].etWords[i].class
 function class(string)
 	-- Checks the class of the word and return its abbreviation
 	if string == "noum" then
@@ -59,6 +64,7 @@ end
 
 --
 -- Check if the string has words refering to God and if so set them to small caps
+-- string = bookModules[i].Chapter[i][j].verse
 function highlightMentionToGod(string)
 	-- first test if the stringing passed is empty
 	if string == nil then
@@ -82,30 +88,38 @@ end
 
 
 --
--- sets bold and italic shapes in the meaning string of the word
+-- sets bold and italic shapes in the meaning string of the etymology of the verse
+-- table = bookModules[i].Chapter[i][j].etWords[i]
 function parseMeaning(table)
-	if table.itWords == nil then
-		return "nil value bro"
+	-- defines the pattern that the gsub will look for in the meaning string
+	local itPattern = "_(.-)_"
+	-- while there are words enclosed by underscores then puts these words in italic shape
+	while table.meaning:find(itPattern) ~= nil do
+		table.meaning = table.meaning:gsub(itPattern,it("%1"))
 	end
-	for i = 1, #table.itWords do
-		local start, fim = table.meaning:find(table.itWords[i])
-		table.meaning = table.meaning:sub(1,start-1) .. "\\textit{" .. table.itWords[i] .. "}" .. table.meaning:sub(fim+1)
+	-- defines the pattern that the gsub will look for in the meaning string
+	local bdPattern = "<(.-)>"
+	-- while there are words enclosed by less-than/greater-than signs then puts these words in bold shape
+	while table.meaning:find(bdPattern) ~= nil do
+		table.meaning = table.meaning:gsub(bdPattern,bd("%1"))
 	end
+	-- after made all substitutions, return the meaning
 	return table.meaning
 end
 
 
 --
 -- prints the etymology of the object table
+-- table = bookModules[i].Chapter[i][j]
 function printEtymology(table)
-	-- if the table passed is empty then prints 'nil value'
-	if table == nil then
-		return "nil value bud :("
+	-- if the verse passed has no etymological term then jumps to the next verse
+	if table.etWords == nil then
+		return false
 	end
 	-- new line
 	tex.print("")
 	-- prints the red ruller before the etymology section
-	tex.print("\\noindent\\tikz \\draw[red,thick,overlay] (0,0) to ++(0:\\columnwidth);")
+	tex.print("\\noindent\\tikz \\draw[Ravostro,overlay] (0,0) to ++(0:\\columnwidth);")
 	-- new line
 	tex.print("")
 	-- set the font and line skip for the etymology section
@@ -118,7 +132,7 @@ function printEtymology(table)
 	-- after doing so, insert a new line
 	tex.print("")
 	-- prints the red ruller after the etymology section
-	tex.print("\\noindent\\tikz \\draw[red,thick,overlay] (0,4pt) to ++(0:\\columnwidth);")
+	tex.print("\\noindent\\tikz \\draw[Ravostro,overlay] (0,4pt) to ++(0:\\columnwidth);")
 	-- new line
 	tex.print("")
 	-- restore the size of verse font
@@ -128,6 +142,7 @@ end
 
 --
 -- Parse verse to return it formated ready to be printed in .tex file
+-- bookModules[i].Chapter[i]
 function parseChapter(table)
 	-- prints the verse
 	for i = 1, #table do
@@ -139,5 +154,25 @@ function parseChapter(table)
 	end
 end
 
+
+--
+-- Parse the books of the bible - bookModules[1]
+function parseBook(table)
+	for i = 1, #table.Chapter do
+		parseChapter(table.Chapter[i])
+	end
+end
+
+
+-- List of Functions:
+	-- bd
+	-- it
+	-- sCaps
+	-- class
+	-- highlightMentionToGod
+	-- parseMeaning
+	-- printEtymology
+	-- parseChapter
+	-- parseBook
 
 --return Precipuo
