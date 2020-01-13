@@ -5,15 +5,16 @@
 %
 %	- Complile this class with LuaLaTeX to make sure everything will work fine
 %
-%	#### 0.4.3 (Jan 10, 2020):
-%		* Improved code that prints the etymology to better find the correct words that'll be
-%		  in italic/bold shape
-%		* Created WHB class that stores the design and styles of the layout
+%	#### 0.5 (Jan 13, 2020):
+%		* .lua function that are able to manipulate strings that are passed to the .tex interpreter
+%		* Implemented the lettrine (capitular) and bigger chapter number according to the design
+%		* Improved `parseChapter` function
+%		* Changed the font used in the etymology section
 %
 %
 %-------------------------------------------------------------------------------------------------
 
-\def\fileversion{0.4.3}
+\def\fileversion{0.5}
 \def\filedate{2020/01/10}
 
 \NeedsTeXFormat{LaTeX2e}
@@ -41,6 +42,8 @@
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
 \RequirePackage{titlesec}
+\RequirePackage{pbox}
+\RequirePackage{lettrine}
 
 \RequirePackage{hyperref}
 
@@ -123,6 +126,7 @@
 
 % ----- fontspec -----
 
+% Main font
 \setmainfont{GaramondPremrPro}[
 	Extension = .otf,
 	UprightFont = *,
@@ -134,7 +138,46 @@
 	Ligatures = Rare
 ]
 
+% IPA font
 \newfontfamily\ipa{Doulos SIL}[SizeFeatures = {Size = 7}]
+
+
+% Etymology font
+\newfontfamily{\etmFont}{Cardo}[
+	Extension = .ttf,
+	UprightFont = *-Regular,
+	BoldFont = *-Bold,
+	ItalicFont = *-Italic,
+%	BoldItalicFont = *-BdIt,
+%	Kerning = On,
+%	Contextuals = Alternate,
+	Ligatures = TeX
+]
+
+% Lettrine font
+\newfontface{\CapitularFont}{GoudyIni}[Color = Ravostro]
+
+%---------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------
+
+
+%						******************************************
+%                       **************** INITIALS ****************
+%                       ******************************************
+
+% ----- lettrine -----
+\renewcommand{\LettrineFontHook}{\CapitularFont}
+\newcommand{\capitular}[3]{%
+	\lettrine[%
+		lines = 3,
+		depth = 0,
+		nindent = 5pt,
+		realheight = true,
+		ante = {\fontsize{36pt}{36pt}\selectfont\color{Ravostro}\lower19pt\hbox{#1}\space}
+	]%
+	{#2}{#3}
+}
 
 %---------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------

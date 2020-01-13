@@ -113,7 +113,7 @@ end
 -- table = bookModules[i].Chapter[i][j]
 function printEtymology(table)
 	-- if the verse passed has no etymological term then jumps to the next verse
-	if table.etWords == nil then
+	if #table.etWords == 0 or table.etWords == nil then
 		return false
 	end
 	-- new line
@@ -123,7 +123,7 @@ function printEtymology(table)
 	-- new line
 	tex.print("")
 	-- set the font and line skip for the etymology section
-	tex.print("\\fontsize{7}{8}\\selectfont")
+	tex.print("\\etmFont\\fontsize{7}{8}\\selectfont")
 	-- runs the 'etWords' table of the verse and prints it
 	for i = 1, #table.etWords do
 		--print(bd(table.etWords[i].word),"--",table.etWords[i].spell,"{\\ipa/"..table.etWords[i].phonetic.."/}",class(table.etWords[i].class)..":",parseMeaning(table.etWords[i]),"")
@@ -136,7 +136,7 @@ function printEtymology(table)
 	-- new line
 	tex.print("")
 	-- restore the size of verse font
-	tex.print("\\normalsize")
+	tex.print("\\normalfont\\normalsize")
 end
 
 
@@ -144,10 +144,22 @@ end
 -- Parse verse to return it formated ready to be printed in .tex file
 -- bookModules[i].Chapter[i]
 function parseChapter(table)
+	-- For the first verse prints the chapter in large size in ravostro color and also sets the capitular for the initial letter of the chapter followed by small caps words
+	tex.print(
+		"\\capitular{" .. tostring(table.chapNum) .. "}{" .. table[1].verse:sub(1,1) .. "}{" .. table[1].verse:sub(2,table[1].verse:find(" ")-1) .. "}",
+		highlightMentionToGod(table[1].verse:sub(table[1].verse:find(" ")+1)),
+		""
+	)
+	if #table[1].verse <= 100 then
+		tex.print("\\vspace{.4cm}")
+		tex.print(printEtymology(table[1]))
+	else
+		tex.print(printEtymology(table[1]))
+	end
 	-- prints the verse
-	for i = 1, #table do
+	for i = 2, #table do
 		--print(table.chapNum, i, highlightMentionToGod(table[i].verse))
-		tex.print(tostring(table.chapNum), tostring(i), highlightMentionToGod(table[i].verse),"")
+		tex.print("{\\noindent\\bfseries\\color{Ravostro}" .. tostring(i) .."\\hspace{.15cm}}", highlightMentionToGod(table[i].verse),"")
 		-- prints the etymology of the words in the verse
 		tex.print(printEtymology(table[i]))
 		--printEtymology(table[i])

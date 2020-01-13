@@ -17,13 +17,43 @@ local Genesis = {
 			
 			[3] = {
 				verse = "And God seide, Liȝt be maad, and liȝt was maad.",
-				--etWords = {idel}
+				etWords = {seide, light, maad}
 			},
 			
 			[4] = {
 				verse = "And God seiȝ the liȝt, that it was good, and he departide the liȝt fro derknessis; and he clepide the liȝt,",
-				--etWords = {}
-			}
+				etWords = {seigh, departide, fro, clepide}
+			},
+			
+			[5] = {
+				verse = "dai, and the derknessis, nyȝt. And the euentid and morwetid was maad, o daie.",
+				etWords = {dai, nyght, euentid, morwetid, oNumeral}
+			},
+			
+			[6] = {
+				verse = "And God seide, The firmament be maad in the myddis of watris, and departe watris fro watris.",
+				etWords = {firmament, myddis}
+			},
+			
+			[7] = {
+				verse = "And God made the firmament, and departide the watris that weren vndur the firmament fro these watris that weren on the firmament; and it was don so.",
+				etWords = {vndur, don}
+			},
+			
+			[8] = {
+				verse = "And God clepide the firmament, heuene. And the euentid and morwetid was maad, the secounde dai.",
+				etWords = {secounde}
+			},
+			
+			[9] = {
+				verse = "Forsothe God seide, The watris, that ben vndur heuene, be gaderid in to o place, and a drie place appere; and it was doon so.",
+				etWords = {ben, gaderid, drie, appere}
+			},
+			
+			[10] = {
+				verse = "And God clepide the drie place, erthe; and he clepide the gadryngis togidere of watris, the sees. And God seiȝ that it was good;",
+				etWords = {gadryngis, togidere, sees}
+			},
 		}
 
 		-- Chapter[2] = {chapNum = 2}
