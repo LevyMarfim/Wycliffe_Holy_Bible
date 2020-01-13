@@ -13,6 +13,7 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 * Review the word's etymologies
 * Draw the column separator
 * Create a dynamic pre-title of the books
+* Make use of the long s as it is used in the original scripts
 
 ## Usage
 Currently the project is in early development status and has no doable applyance but to build the source code. You can help the project by suggesting implementations or supporting it by any finantial means. If you want to sponsor it consider contacting us.
