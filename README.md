@@ -3,13 +3,16 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 
 ![Preview of what the project is going to look](/Resources/preview.jpg)
 
-## What's new in version 0.4.3
-* Improved code that prints the etymology to better find the correct words that'll be in italic/bold shape
-* Created WHB class that stores the design and styles of the layout
+## What's new in version 0.5
+* .lua function that are able to manipulate strings that are passed to the .tex interpreter
+* Implemented the lettrine (capitular) and bigger chapter number according to the design
+* Improved `parseChapter` function
+* Changed the font used in the etymology section
 
 ## To do list
-* Change main font to one that contains the glyphs needed in the text
-* Implement in the .lua code the lettrine and chapter number on the design
+* Review the word's etymologies
+* Draw the column separator
+* Create a dynamic pre-title of the books
 
 ## Usage
 Currently the project is in early development status and has no doable applyance but to build the source code. You can help the project by suggesting implementations or supporting it by any finantial means. If you want to sponsor it consider contacting us.
