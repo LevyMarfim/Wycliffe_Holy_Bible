@@ -4,7 +4,7 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 ![Preview of what the project is going to look](/Resources/preview.jpg)
 
 ## What's new in version 0.5
-* .lua function that are able to manipulate strings that are passed to the .tex interpreter
+* Lua function that are able to manipulate strings that are passed to the TeX interpreter
 * Implemented the lettrine (capitular) and bigger chapter number according to the design
 * Improved `parseChapter` function
 * Changed the font used in the etymology section
