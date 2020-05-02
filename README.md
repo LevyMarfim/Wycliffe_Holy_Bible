@@ -10,7 +10,7 @@ The Holy Bible with etymological context based on John Wycliffe translation of t
 * Changed the font used in the etymology section
 
 ## To do list
-* Review the word's etymologies
+* Review word's etymologies
 * Draw the column separator
 * Create a dynamic pre-title of the books
 * Make use of the long s as it is used in the original scripts
